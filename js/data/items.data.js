@@ -61,7 +61,7 @@ const rawList = [
             {
                 if: null,
                 text:
-                    'Vous décidez de tous les deux de prêter attention à Timmy et SURVIVALISTE',
+                    'Vous décidez tous les deux de prêter attention à Timmy et SURVIVALISTE',
                 link: 5
             }
         ],
@@ -77,7 +77,7 @@ const rawList = [
             {
                 if: null,
                 text:
-                    'Vous décidez de tous les deux de prêter attention à Timmy et SURVIVALISTE',
+                    'Vous décidez tous les deux de prêter attention à Timmy et SURVIVALISTE',
                 link: 5
             }
         ],
@@ -93,7 +93,7 @@ const rawList = [
             {
                 if: null,
                 text:
-                    'Vous décidez de tous les deux de prêter attention à Timmy et SURVIVALISTE',
+                    'Vous décidez tous les deux de prêter attention à Timmy et SURVIVALISTE',
                 link: 5
             }
         ],
