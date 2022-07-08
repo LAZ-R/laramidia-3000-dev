@@ -95,3 +95,51 @@
 .roboto-black-italic {
     font-family: "Roboto-Black-Italic";
 }
+
+
+
+/* ==== FONT : Lora ==== */
+
+/* == Regular == */
+@font-face {
+    font-family: "Lora-Regular";
+    src: url("./fonts/lora/Lora-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Lora-Regular-Italic";
+    src: url("./fonts/lora/Lora-Italic.ttf") format("truetype");
+}
+
+/* == Medium == */
+@font-face {
+    font-family: "Lora-Medium";
+    src: url("./fonts/lora/Lora-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Lora-Medium-Italic";
+    src: url("./fonts/lora/Lora-MediumItalic.ttf") format("truetype");
+}
+
+/* == SemiBold == */
+@font-face {
+    font-family: "Lora-SemiBold";
+    src: url("./fonts/lora/Lora-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Lora-SemiBold-Italic";
+    src: url("./fonts/lora/Lora-SemiBoldItalic.ttf") format("truetype");
+}
+
+/* == Bold == */
+@font-face {
+    font-family: "Lora-Bold";
+    src: url("./fonts/lora/Lora-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Lora-Bold-Italic";
+    src: url("./fonts/lora/Lora-BoldItalic.ttf") format("truetype");
+}

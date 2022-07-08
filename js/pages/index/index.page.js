@@ -2,6 +2,9 @@ import * as COMPONENT_FOOTER from '../../components/footer/footer.component.js'
 import { getItemById } from '../../data/items.data.js';
 import * as SERVICE_STORAGE from '../../data/storage.service.js';
 import * as SERVICE_PWA from '../../pwa.service.js';
+import * as COMPONENT_HEADER from "../../components/header/header.component.js";
+
+COMPONENT_HEADER.render('index');
 
 const renderView = (itemId) => {
 
@@ -15,7 +18,7 @@ const renderView = (itemId) => {
 
     switch (item.theme) {
         case 'basic':
-            document.getElementById('html').style.backgroundColor = '#d4c5ab';
+            document.getElementById('html').style.backgroundColor = '#ffffff'; //'#ebe0ce';
             break;
         case 'bestwin':
             document.getElementById('html').style.backgroundColor = '#92e38f';
@@ -29,23 +32,56 @@ const renderView = (itemId) => {
         default:
             break;
     }
-    
 
-    page.appendChild(document.createElement('p')).innerHTML = item.content;
+    const content = document.createElement('p');
+    content.setAttribute('id', 'textContent');
+    content.setAttribute('class', 'text-content');
+    content.innerHTML =
+        item.content;
+    page.appendChild(content)
 
     item.buttons.forEach(button => {
-        const finalButton = document.createElement('button');
-        finalButton.innerHTML = button.text;
-        finalButton.setAttribute('class', 'primary-button');
-        finalButton.addEventListener('click', () => {
-            SERVICE_STORAGE.setPlayerCurrent(button.link);
-            renderView(button.link);
-        });
-
-        page.appendChild(finalButton);
+        if (button.if != null) {
+            if (isInPath(button.if)) {
+                renderButton(page, button);
+            }
+        } else {
+            renderButton(page, button);
+        }
     });
     
     document.getElementById('main').appendChild(page);
+}
+
+const renderButton = (page, button) => {
+    const finalButton = document.createElement('button');
+    finalButton.innerHTML = button.text;
+    finalButton.setAttribute('class', 'primary-button');
+    finalButton.addEventListener('click', () => {
+        if (button.link != 0) {
+            SERVICE_STORAGE.setPlayerCurrent(button.link);
+            SERVICE_STORAGE.addToPlayerPath(button.link);
+            renderView(button.link);
+        } else {
+            SERVICE_STORAGE.resetPlayerCurrent();
+            SERVICE_STORAGE.resetPlayerPath();
+            renderView(button.link);
+        }
+        
+    });
+
+    page.appendChild(finalButton);
+}
+
+const isInPath = (itemId) => {
+    let toReturn = false;
+    const playerPath = SERVICE_STORAGE.getPlayerPath();
+    playerPath.forEach(element => {
+        if (element == itemId) {
+            toReturn = true;
+        }
+    });
+    return toReturn;
 }
 
 renderView(SERVICE_STORAGE.getPlayerCurrent());

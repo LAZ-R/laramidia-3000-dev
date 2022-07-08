@@ -13,3 +13,14 @@ main div {
 main button {
     width: 100%;
 }
+
+.text-content {
+    box-sizing: border-box;
+    border: 1px dashed var(--primary);
+    border-radius: 5px;
+    padding: 10px 10px;
+    font-family: "Lora-Medium";
+    color: var(--primary-hover);
+    font-size: 17px;
+    width: 100%;
+}

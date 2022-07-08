@@ -1,0 +1,26 @@
+@import url("../../../css/root.css");
+
+/* Put here any 'history.html' specific css */
+
+.history-text-content {
+    box-sizing: border-box;
+    border: 1px dashed var(--primary);
+    border-radius: 5px;
+    padding: 10px 10px;
+    font-family: "Lora-Medium";
+    color: var(--primary-hover);
+    width: 100%;
+}
+
+.history-response-content {
+    box-sizing: border-box;
+    padding: 10px 10px;
+    margin: 0 0;
+    font-family: "Lora-Medium";
+    color: var(--primary-hover);
+    width: 100%;
+}
+
+.special-main {
+    margin-bottom: calc(var(--phone-footer-height) + 80px);
+}

@@ -12,7 +12,9 @@ const rawList = [
             'Bienvenue dans une aventure dont <b>VOUS</b> êtes le héros.',
         buttons: [
             {
-                text: 'Commencer',
+                if: null,
+                text:
+                    'Commencer',
                 link: 1
             }
         ],
@@ -21,21 +23,30 @@ const rawList = [
 
     {
         id: 1,
-        title: 'Arrivée sur Laramidia',
+        title: 'Arrivée à l\'aéroport',
         content:
-            'Vous venez d\'arriver sur place.<br>' +
-            'Vous ne voyez pas grand chose, de toute façon ceci n\'est qu\'un exemple de page.',
+            'Le taxi, peu bavard et plutôt grognon, vous dépose enfin à l\'aéroport après ce qui vous a semblé une éternité.<br>' +
+            'Vous saluez vos amis regroupés un peu plus loin en vous dirigeant vers eux.<br>' +
+            '<br>' +
+            'Timmy est passé vous voir la semaine précédente pour vous proposer de vous retrouver ici, mais il y a bien longtemps que vous n\'aviez pas vu [NOM SURVIVALISTE] et [NOM FILLE].<br>' +
+            'Celle-ci vous sourit en retour, sort un paquet de cigarettes de sa poche, et vous demande si vous n\'auriez pas du feu.',
         buttons: [
             {
-                text: 'Aller à la meilleur fin du jeu',
+                if: null,
+                text:
+                    'Vous lui répondez que n\'ayant jamais fumé de votre vie, il serait souhaitable qu\'elle recycle son stock de blagues',
                 link: 2
             },
             {
-                text: 'Aller à la fin bis',
+                if: null,
+                text:
+                    'Vous lui prêtez votre briquet fétiche en sortant vos propres cigarettes',
                 link: 3
             },
             {
-                text: 'Mourir directement',
+                if: null,
+                text:
+                    'Vous lui annoncez que depuis la dernière fois que vous vous êtes vu, vous avez arrêté de fumer, et que vous vous sentez beaucoup mieux !',
                 link: 4
             },
         ],
@@ -43,43 +54,70 @@ const rawList = [
     },
     {
         id: 2,
-        title: 'La meilleur fin du jeu',
+        title: 'Si peu d\'humour...',
         content:
-            'Ceci est l\'écran de la meilleur fin du jeu.',
+            '[NOM FILLE] s\'esclaffe, vous répondant que décidément, votre sens de l\'humour est toujours aussi déplorable, et en profite pour alpaguer un passant qui avait le malheur d\'allumer une cigarette au même instant.',
         buttons: [
             {
-                text: 'Retourner à l\'écran titre',
-                link: 0
+                if: null,
+                text:
+                    'Vous décidez de tous les deux prêter attention à Timmy et [NON SURVIVALISTE]',
+                link: 5
             }
         ],
-        theme: 'bestwin'
+        theme: 'basic'
     },
     {
         id: 3,
-        title: 'La fin du jeu',
+        title: 'À sec',
         content:
-            'Ceci est l\'écran de la fin du jeu (non optimale).',
+            '[NOM FILLE] allume sa cigarette et vous rend votre briquet en marmonant qu\'il serait temps d\'en changer.<br>' +
+            'En allumant la vôtre, vous la taquinez en répondant qu\'au moins, vous, vous avez du feu, même si il est bientôt à sec, et vous éclatez tous les deux d\'un rire sincère.',
         buttons: [
             {
-                text: 'Retourner à l\'écran titre',
-                link: 0
+                if: null,
+                text:
+                    'Vous décidez de tous les deux prêter attention à Timmy et [NON SURVIVALISTE]',
+                link: 5
             }
         ],
-        theme: 'win'
+        theme: 'basic'
     },
     {
         id: 4,
-        title: 'Vous êtes mort',
+        title: 'Bravo !',
         content:
-            'Ça devait arriver avec un manche à balai dans votre genre.<br>' +
-            'Vous êtes mort.',
+            '[NOM FILLE] vous charie et en profite pour alpaguer un passant qui avait le malheur d\'allumer une cigarette au même instant, mais fini par vous féliciter en vous disant que ses essais successifs se sont tous soldés par des échecs.<br>' +
+            'Vous compatissez mais lui assurez que la prochaine sera la bonne, et lui proposez même vôtre aide.',
         buttons: [
             {
-                text: 'Retourner à l\'écran titre',
-                link: 0
+                if: null,
+                text:
+                    'Vous décidez de tous les deux prêter attention à Timmy et [NON SURVIVALISTE]',
+                link: 5
             }
         ],
-        theme: 'death'
+        theme: 'basic'
+    },
+    {
+        id: 5,
+        title: 'le feu',
+        content:
+            'Ici, si vous avez répondu que vous aviez un briquet, vous devez voir apparaitre un bouton qui n\'est visible que dans cette situation.<br>' +
+            'Sinon, vous ne voyez qu\'un seul bouton. Les deux font la même chose',
+        buttons: [
+            {
+                if: null,
+                text: 'Retour à l\'écran titre',
+                link: 0
+            },
+            {
+                if: 3,
+                text: 'Visible uniquement si briquet',
+                link: 0
+            },
+        ],
+        theme: 'basic'
     },
 ];
 

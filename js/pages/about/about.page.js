@@ -1,6 +1,9 @@
 import * as SERVICE_PWA from '../../pwa.service.js';
+import * as COMPONENT_HEADER from "../../components/header/header.component.js";
 
-const pageTitle = 'About';
+COMPONENT_HEADER.render('about');
+
+const pageTitle = 'À propos';
 
 const renderView = () => {
 
@@ -8,9 +11,11 @@ const renderView = () => {
     
     const page = document.createElement('div');
     page.appendChild(document.createElement('h1')).innerHTML =
-        pageTitle;
+        'Laramidia 3000';
     page.appendChild(document.createElement('p')).innerHTML =
-        'Made by laz-R with ♥';
+        'Version ' + SERVICE_PWA.getAppVersionNumber();
+    page.appendChild(document.createElement('p')).innerHTML =
+        'Made by laz-R & Streamponk with ♥';
     
     document.getElementById('main').appendChild(page);
 }
