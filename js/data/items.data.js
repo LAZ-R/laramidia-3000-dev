@@ -23,12 +23,12 @@ const rawList = [
 
     {
         id: 1,
-        title: 'Arrivée à l\'aéroport',
+        title: 'Réunion de famille',
         content:
             'Le taxi, peu bavard et plutôt grognon, vous dépose enfin à l\'aéroport après ce qui vous a semblé une éternité.<br>' +
-            'Vous saluez vos amis regroupés un peu plus loin en vous dirigeant vers eux.<br>' +
+            'Vous saluez vos amis, regroupés un peu plus loin, en vous dirigeant vers eux.<br>' +
             '<br>' +
-            'Timmy est passé vous voir la semaine précédente pour vous proposer de vous retrouver ici, mais il y a bien longtemps que vous n\'aviez pas vu [NOM SURVIVALISTE] et [NOM FILLE].<br>' +
+            'Timmy est passé vous voir la semaine précédente pour vous proposer de vous retrouver ici, mais il y a bien longtemps que vous n\'aviez pas vu SURVIVALISTE et FILLE.<br>' +
             'Celle-ci vous sourit en retour, sort un paquet de cigarettes de sa poche, et vous demande si vous n\'auriez pas du feu.',
         buttons: [
             {
@@ -56,12 +56,12 @@ const rawList = [
         id: 2,
         title: 'Si peu d\'humour...',
         content:
-            '[NOM FILLE] s\'esclaffe, vous répondant que décidément, votre sens de l\'humour est toujours aussi déplorable, et en profite pour alpaguer un passant qui avait le malheur d\'allumer une cigarette au même instant.',
+            'FILLE s\'esclaffe, vous répondant que décidément, votre sens de l\'humour est toujours aussi déplorable, et en profite pour alpaguer un passant qui avait le malheur d\'allumer une cigarette au même instant.',
         buttons: [
             {
                 if: null,
                 text:
-                    'Vous décidez de tous les deux prêter attention à Timmy et [NON SURVIVALISTE]',
+                    'Vous décidez de tous les deux de prêter attention à Timmy et SURVIVALISTE',
                 link: 5
             }
         ],
@@ -71,13 +71,13 @@ const rawList = [
         id: 3,
         title: 'À sec',
         content:
-            '[NOM FILLE] allume sa cigarette et vous rend votre briquet en marmonant qu\'il serait temps d\'en changer.<br>' +
-            'En allumant la vôtre, vous la taquinez en répondant qu\'au moins, vous, vous avez du feu, même si il est bientôt à sec, et vous éclatez tous les deux d\'un rire sincère.',
+            'FILLE allume sa cigarette et vous rend votre briquet, en marmonant qu\'il serait temps d\'en changer.<br>' +
+            'En allumant la vôtre, vous la taquinez en répondant que vous, au moins, vous avez du feu, même s\'il est bientôt à sec, et vous éclatez ensemble d\'un rire sincère.',
         buttons: [
             {
                 if: null,
                 text:
-                    'Vous décidez de tous les deux prêter attention à Timmy et [NON SURVIVALISTE]',
+                    'Vous décidez de tous les deux de prêter attention à Timmy et SURVIVALISTE',
                 link: 5
             }
         ],
@@ -87,13 +87,13 @@ const rawList = [
         id: 4,
         title: 'Bravo !',
         content:
-            '[NOM FILLE] vous charie et en profite pour alpaguer un passant qui avait le malheur d\'allumer une cigarette au même instant, mais fini par vous féliciter en vous disant que ses essais successifs se sont tous soldés par des échecs.<br>' +
+            'FILLE vous charie et en profite pour alpaguer un passant qui avait le malheur d\'allumer une cigarette au même instant, mais fini par vous féliciter en vous disant que ses essais successifs se sont tous soldés par des échecs.<br>' +
             'Vous compatissez mais lui assurez que la prochaine sera la bonne, et lui proposez même vôtre aide.',
         buttons: [
             {
                 if: null,
                 text:
-                    'Vous décidez de tous les deux prêter attention à Timmy et [NON SURVIVALISTE]',
+                    'Vous décidez de tous les deux de prêter attention à Timmy et SURVIVALISTE',
                 link: 5
             }
         ],
@@ -101,10 +101,10 @@ const rawList = [
     },
     {
         id: 5,
-        title: 'le feu',
+        title: 'Le feu',
         content:
             'Ici, si vous avez répondu que vous aviez un briquet, vous devez voir apparaitre un bouton qui n\'est visible que dans cette situation.<br>' +
-            'Sinon, vous ne voyez qu\'un seul bouton. Les deux font la même chose',
+            'Sinon, vous ne voyez qu\'un seul bouton. Les deux font ici la même chose, mais à terme non',
         buttons: [
             {
                 if: null,
@@ -113,7 +113,7 @@ const rawList = [
             },
             {
                 if: 3,
-                text: 'Visible uniquement si briquet',
+                text: '🔥 Visible uniquement si briquet 🔥',
                 link: 0
             },
         ],

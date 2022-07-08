@@ -33,6 +33,15 @@ const renderView = () => {
             }
             if (index != playerPath.length - 1) {
                 const item = getItemById(pageId);
+                const title = document.createElement('p');
+                title.setAttribute('id', 'textTitle');
+                title.setAttribute('class', 'history-text-title');
+                title.innerHTML =
+                '<span class="title-decoration">- - - - - - - - -</span>'+
+                '<span class="item-title">' + item.title + '</span>' +
+                '<span class="title-decoration">- - - - - - - - -</span>';
+                page.appendChild(title);
+
                 const content = document.createElement('p');
                 content.setAttribute('id', 'textContent');
                 content.setAttribute('class', 'history-text-content');

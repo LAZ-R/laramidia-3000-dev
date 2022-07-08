@@ -2,6 +2,26 @@
 
 /* Put here any 'history.html' specific css */
 
+.history-text-title {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.title-decoration {
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.item-title {
+    font-family: "Lora-Medium";
+    text-align: center;
+}
+
 .history-text-content {
     box-sizing: border-box;
     border: 1px dashed var(--primary);

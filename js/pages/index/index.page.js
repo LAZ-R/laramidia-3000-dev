@@ -33,6 +33,17 @@ const renderView = (itemId) => {
             break;
     }
 
+    if (item.id != 0) {
+        const title = document.createElement('p');
+        title.setAttribute('id', 'textTitle');
+        title.setAttribute('class', 'title-area');
+        title.innerHTML =
+        '<span class="title-decoration">- - - - - - - - -</span>'+
+        '<span class="item-title">' + item.title + '</span>' +
+        '<span class="title-decoration">- - - - - - - - -</span>';
+        page.appendChild(title)
+    }
+
     const content = document.createElement('p');
     content.setAttribute('id', 'textContent');
     content.setAttribute('class', 'text-content');
