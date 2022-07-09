@@ -30,6 +30,11 @@ export const render = (webPath) => {
                     indexLi +
                 '</ul>';
         break;
+        case 'void':
+            ul = 
+                '<ul class="header-nav-ul">' +
+                '</ul>';
+        break;
         default:
             ul = 
                 '<ul class="header-nav-ul">' +

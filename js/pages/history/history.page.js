@@ -37,9 +37,9 @@ const renderView = () => {
                 title.setAttribute('id', 'textTitle');
                 title.setAttribute('class', 'history-text-title');
                 title.innerHTML =
-                '<span class="title-decoration">- - - - - - - - -</span>'+
+                '<span class="title-decoration">- - - - - -</span>'+
                 '<span class="item-title">' + item.title + '</span>' +
-                '<span class="title-decoration">- - - - - - - - -</span>';
+                '<span class="title-decoration">- - - - - -</span>';
                 page.appendChild(title);
 
                 const content = document.createElement('p');
