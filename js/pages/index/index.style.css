@@ -35,6 +35,11 @@ main button {
     text-align: center;
 }
 
+.logo {
+    width: 200px;
+    margin-top: 30px;
+}
+
 .text-content {
     box-sizing: border-box;
     border: 1px dashed var(--primary);

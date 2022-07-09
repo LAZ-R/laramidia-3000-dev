@@ -46,6 +46,13 @@ const renderView = (itemId) => {
         '<span class="item-title">' + item.title + '</span>' +
         '<span class="title-decoration">- - - - - -</span>';
         page.appendChild(title)
+    } else {
+        const logo = document.createElement('img');
+        logo.setAttribute('id', 'logo');
+        logo.setAttribute('class', 'logo');
+        logo.setAttribute('alt', 'un crâne de dinosaure sur un fond texturé de feuillage');
+        logo.setAttribute('src', './images/laramidia_icon.png');
+        page.appendChild(logo)
     }
 
     if (itemId != -1) {
