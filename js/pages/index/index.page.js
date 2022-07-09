@@ -1,7 +1,7 @@
 import * as COMPONENT_FOOTER from '../../components/footer/footer.component.js'
-import { getItemById } from '../../data/items.data.js';
-import * as SERVICE_STORAGE from '../../data/storage.service.js';
-import * as SERVICE_PWA from '../../pwa.service.js';
+import * as SERVICE_ITEMS from '../../services/items.service.js';
+import * as SERVICE_STORAGE from '../../services/storage.service.js';
+import * as SERVICE_PWA from '../../services/pwa.service.js';
 import * as COMPONENT_HEADER from "../../components/header/header.component.js";
 
 COMPONENT_HEADER.render('index');
@@ -10,7 +10,7 @@ const renderView = (itemId) => {
 
     document.getElementById('main').innerHTML = '';
 
-    const item = getItemById(itemId);
+    const item = SERVICE_ITEMS.getItemById(itemId);
 
     SERVICE_PWA.setHTMLTitle(item.title);
     
@@ -94,6 +94,6 @@ const isInPath = (itemId) => {
     });
     return toReturn;
 }
-
+SERVICE_STORAGE.checkFirstTime();
 renderView(SERVICE_STORAGE.getPlayerCurrent());
 COMPONENT_FOOTER.render();

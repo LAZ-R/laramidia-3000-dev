@@ -1,4 +1,4 @@
-import * as SERVICE_PWA from '../../pwa.service.js'
+import * as SERVICE_PWA from '../../services/pwa.service.js'
 
 export const render = () => {
     const year = new Date().getFullYear();

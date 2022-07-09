@@ -1,4 +1,4 @@
-import * as SERVICE_PWA from '../../pwa.service.js';
+import * as SERVICE_PWA from '../../services/pwa.service.js';
 import * as COMPONENT_HEADER from "../../components/header/header.component.js";
 
 COMPONENT_HEADER.render('about');

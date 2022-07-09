@@ -1,10 +1,4 @@
-/*
-    Every image here is under a Pixabay License
-        https://pixabay.com/service/license/
-        https://pixabay.com/service/terms/#license
-
-*/
-const rawList = [
+export const RAW_LIST = [
     {
         id: 0,
         title: 'Accueil',
@@ -29,12 +23,12 @@ const rawList = [
             'Vous saluez vos amis, regroupés un peu plus loin, en vous dirigeant vers eux.<br>' +
             '<br>' +
             'Timmy est passé vous voir la semaine précédente pour vous proposer de vous retrouver ici, mais il y a bien longtemps que vous n\'aviez pas vu SURVIVALISTE et FILLE.<br>' +
-            'Celle-ci vous sourit en retour, sort un paquet de cigarettes de sa poche, et vous demande si vous n\'auriez pas du feu.',
+            'Celle-ci vous sourit en sortant un paquet de cigarettes de sa poche, et vous demande si vous n\'auriez pas du feu.',
         buttons: [
             {
                 if: null,
                 text:
-                    'Vous lui répondez que n\'ayant jamais fumé de votre vie, il serait souhaitable qu\'elle recycle son stock de blagues',
+                    'Vous lui dites que n\'ayant jamais fumé de votre vie, il serait souhaitable qu\'elle recycle son stock de blagues',
                 link: 2
             },
             {
@@ -56,7 +50,7 @@ const rawList = [
         id: 2,
         title: 'Si peu d\'humour...',
         content:
-            'FILLE s\'esclaffe, vous répondant que décidément, votre sens de l\'humour est toujours aussi déplorable, et en profite pour alpaguer un passant qui avait le malheur d\'allumer une cigarette au même instant.',
+            'FILLE s\'esclaffe en vous répondant que décidément, votre sens de l\'humour est toujours aussi déplorable, et en profite pour alpaguer un passant qui avait le malheur d\'allumer une cigarette au même instant.',
         buttons: [
             {
                 if: null,
@@ -103,8 +97,8 @@ const rawList = [
         id: 5,
         title: 'Le feu',
         content:
-            'Ici, si vous avez répondu que vous aviez un briquet, vous devez voir apparaitre un bouton qui n\'est visible que dans cette situation.<br>' +
-            'Sinon, vous ne voyez qu\'un seul bouton. Les deux font ici la même chose, mais à terme non',
+            'Ici, si vous avez répondu que vous aviez un briquet, vous voyez apparaitre un bouton qui n\'est visible que dans cette situation.<br>' +
+            'Sinon, vous ne voyez qu\'un seul bouton.',
         buttons: [
             {
                 if: null,
@@ -113,24 +107,10 @@ const rawList = [
             },
             {
                 if: 3,
-                text: '🔥 Visible uniquement si briquet 🔥',
+                text: '🔥 Retour à l\'écran titre 🔥',
                 link: 0
             },
         ],
         theme: 'basic'
     },
 ];
-
-export const getItems = () => {
-    return rawList;
-}
-
-export const getItemById = (itemId) => {
-    let itemReturn;
-    getItems().forEach(item => {
-        if (item.id == itemId) {
-            itemReturn = item;
-        }
-    });
-    return itemReturn;
-}

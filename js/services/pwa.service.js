@@ -1,4 +1,4 @@
-import { VERSION_NUMBER } from "./data/pwa.data.js";
+import { VERSION_NUMBER } from "../data/pwa.data.js";
 
 export const setHTMLTitle = (pageTitle) => {
   const title = document.getElementById('title');

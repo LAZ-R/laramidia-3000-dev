@@ -1,6 +1,6 @@
-import { getItemById } from '../../data/items.data.js';
-import * as SERVICE_STORAGE from '../../data/storage.service.js';
-import * as SERVICE_PWA from '../../pwa.service.js';
+import * as SERVICE_ITEMS from '../../services/items.service.js';
+import * as SERVICE_STORAGE from '../../services/storage.service.js';
+import * as SERVICE_PWA from '../../services/pwa.service.js';
 import * as COMPONENT_HEADER from "../../components/header/header.component.js";
 
 COMPONENT_HEADER.render('history');
@@ -19,7 +19,7 @@ const renderView = () => {
         const pageId = playerPath[index];
         if (pageId != 0 ) {
             if (pageId != 1) {
-                const previousItem = getItemById(playerPath[index - 1]);
+                const previousItem = SERVICE_ITEMS.getItemById(playerPath[index - 1]);
                 previousItem.buttons.forEach(button => {
                     if (button.link == pageId) {
                         const responseContent = document.createElement('p');
@@ -32,7 +32,7 @@ const renderView = () => {
                 });
             }
             if (index != playerPath.length - 1) {
-                const item = getItemById(pageId);
+                const item = SERVICE_ITEMS.getItemById(pageId);
                 const title = document.createElement('p');
                 title.setAttribute('id', 'textTitle');
                 title.setAttribute('class', 'history-text-title');
