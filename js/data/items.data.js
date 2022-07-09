@@ -18,12 +18,14 @@ export const RAW_LIST = [
         id: 0,
         title: 'Accueil',
         content:
-            'Bienvenue dans une aventure dont <b>VOUS</b> êtes le héros.',
+            'Bienvenue dans une aventure dont <b>VOUS</b> êtes le héros.<br>' +
+            '<br>' +
+            'Pour naviguer à travers cette histoire, il vous suffira de choisir une des options proposées au bas de chaque page.',
         buttons: [
             {
                 if: null,
                 text:
-                    'Commencer',
+                    'Commencer l\'aventure !',
                 link: 1
             }
         ],
@@ -36,7 +38,7 @@ export const RAW_LIST = [
         content:
             'Le taxi, peu bavard et plutôt grognon, vous dépose enfin à l\'aéroport après ce qui vous a semblé une éternité.<br>' +
             '<br>' +
-            'Vous saluez vos amis, regroupés un peu plus loin, en vous dirigeant vers eux.<br>' +
+            'Vous saluez vos amis d\'enfance, regroupés un peu plus loin, en vous dirigeant vers eux.<br>' +
             'Timmy est passé vous voir la semaine précédente pour vous proposer cette "réunion de famille", mais il y a un petit moment que vous n\'aviez pas vu SURVIVALISTE et FILLE en personne.<br>' +
             '<br>' +
             'Celle-ci vous sourit en sortant un paquet de cigarettes de sa poche, et vous demande si vous n\'auriez pas du feu.',
@@ -79,7 +81,7 @@ export const RAW_LIST = [
     },
     {
         id: 3,
-        title: 'À sec',
+        title: 'À sec ?',
         content:
             'FILLE allume sa cigarette et vous rend votre briquet, en marmonnant qu\'il serait peut-être temps d\'en changer.<br>' +
             'Vous la taquinez pendant que vous essayez d\'allumer la vôtre tant bien que mal, en répondant que vous, au moins, vous avez du feu, même s\'il est vieux et bientôt à sec, avant d\'éclater de rire ensemble.',
@@ -87,7 +89,7 @@ export const RAW_LIST = [
             {
                 if: null,
                 text:
-                    'Timmy et SURVIVALISTE sourient également, et vous saluent à leur tour',
+                    'Timmy et SURVIVALISTE sourient et vous saluent à leur tour',
                 link: 5
             }
         ],
@@ -97,13 +99,13 @@ export const RAW_LIST = [
         id: 4,
         title: 'Bravo !',
         content:
-            'FILLE vous charie et en profite pour alpaguer un passant qui avait le malheur d\'allumer une cigarette au même instant, mais fini par vous féliciter en vous disant que ses essais successifs se sont tous soldés par des échecs.<br>' +
+            'FILLE vous charrie et en profite pour alpaguer un passant qui avait le malheur d\'allumer une cigarette au même instant, mais fini par vous féliciter en vous disant que ses essais successifs se sont tous soldés par des échecs.<br>' +
             'Vous compatissez, lui assurez que la prochaine tentative sera la bonne, et lui proposez même vôtre aide.',
         buttons: [
             {
                 if: null,
                 text:
-                    'Timmy et SURVIVALISTE vous félicient également, et vous saluent à leur tour',
+                    'Timmy et SURVIVALISTE vous félicient également, avant de vous saluer à leur tour',
                 link: 5
             }
         ],
@@ -113,10 +115,10 @@ export const RAW_LIST = [
         id: 5,
         title: 'La véritable raison',
         content:
-            '"Alors si je vous ai demandé de venir, ce n\'est pas uniquement pour passer du temps avec mes meilleurs amis dans un hôtel aux USA." déclare Timmy.<br>' +
+            '"Alors si je vous ai demandé de venir ici, ce n\'est pas <i>uniquement</i> pour passer une semaine avec mes meilleurs amis dans un hôtel aux USA." déclare Timmy.<br>' +
             '"Comme vous le savez sûrement, mon équipe de fouille et moi même avons été envoyés dans le Montana afin d\'étudier une formation récemment découverte, et j\'aimerais vous emmener voir de vos propres yeux certains des spécimens les plus incroyables que nous avons mis à jour. Ils sont tout simplement à couper le souffle, et pourraient révolutionner notre façon de voir les dinosaures et leurs interactions sociales".<br>' +
             '<br>' +
-            'FILLE se montre immédiatement curieuse, tandis que SURVIVALISTE émet, comme à son habitude, des doutes sur l\'emballement de Timmy pour de <i>"vulgaires cailloux d\'os d\'animaux disparus depuis des millions d\'années"</i>.<br>' +
+            'FILLE se montre immédiatement curieuse, tandis que SURVIVALISTE émet, comme à son habitude, des doutes sur l\'emballement de Timmy pour ce qu\'il appelle de <i>"vulgaires cailloux d\'os d\'animaux disparus depuis des millions d\'années"</i>.<br>' +
             '<br>' +
             'Pour votre part,',
         buttons: [
@@ -127,7 +129,7 @@ export const RAW_LIST = [
             },
             {
                 if: null,
-                text: 'Vous savez que Timmy vous bassinera avec ses lézards pendant toute la durée du vol, mais l\'important est d\'être avec vos amis, vous vous contentez donc de hocher la tête en signe d\'approbation',
+                text: 'Vous savez que Timmy va vous bassiner avec ses lézards pendant toute la durée du vol, mais l\'important est d\'être avec vos amis, vous vous contentez donc de hocher la tête en signe d\'approbation',
                 link: 7
             },
             {
@@ -180,7 +182,7 @@ export const RAW_LIST = [
         id: 8,
         title: 'La folie, et l\'addition !',
         content:
-            'Alors que vous regardez vos anciens camarades fondre, le bruit appaisant des sirènes se rapprochant vous fait oublier tous vos démons interieurs. Vous allez enfin pouvoir vous reposer.<br>' +
+            'Alors que vous regardez vos anciens camarades fondre en se tordant de douleur, le bruit appaisant des sirènes se rapprochant vous fait oublier vos démons intérieurs. Vous allez enfin pouvoir vous reposer.<br>' +
             '<br>' +
             'C\'est une façon originale de finir cette démo, merci quand même d\'y avoir joué !',
         buttons: [

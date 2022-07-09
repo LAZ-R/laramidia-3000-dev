@@ -52,6 +52,9 @@ const renderView = (itemId) => {
         const content = document.createElement('p');
         content.setAttribute('id', 'textContent');
         content.setAttribute('class', 'text-content');
+        if (item.id == 0) {
+            content.style.border = 'none';
+        }
         content.innerHTML =
             item.content;
         page.appendChild(content)
