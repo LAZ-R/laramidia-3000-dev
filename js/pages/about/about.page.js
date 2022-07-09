@@ -10,12 +10,10 @@ const renderView = () => {
     SERVICE_PWA.setHTMLTitle(pageTitle);
     
     const page = document.createElement('div');
-    page.appendChild(document.createElement('h1')).innerHTML =
-        'Laramidia 3000';
     page.appendChild(document.createElement('p')).innerHTML =
         'Version ' + SERVICE_PWA.getAppVersionNumber();
     page.appendChild(document.createElement('p')).innerHTML =
-        'Made by laz-R & Streamponk with ♥';
+        'by <a href="https://laz-r.github.io/">laz_R</a> & Streamponk';
     
     document.getElementById('main').appendChild(page);
 }

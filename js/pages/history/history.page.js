@@ -57,7 +57,11 @@ const renderView = () => {
     page.appendChild(bottom);
     
     document.getElementById('main').appendChild(page);
-    document.getElementById('bottom2').scrollIntoView({behavior:'smooth'});
+    
 }
 
 renderView();
+
+window.onload = () => {
+    document.getElementById('bottom2').scrollIntoView({behavior:'smooth'});
+}

@@ -28,7 +28,6 @@ export const render = (webPath) => {
             ul = 
                 '<ul class="header-nav-ul">' +
                     indexLi +
-                    historyLi +
                 '</ul>';
         break;
         default:
