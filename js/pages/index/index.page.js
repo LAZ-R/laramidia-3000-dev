@@ -135,10 +135,12 @@ const renderButton = (pageComponent, button, item) => {
             }
             SERVICE_STORAGE.addToPlayerPath(pathItem);
             renderView(button.link);
+            window.scrollTo(0, 0);
         } else {
             SERVICE_STORAGE.resetPlayerCurrent();
             SERVICE_STORAGE.resetPlayerPath();
             renderView(button.link);
+            window.scrollTo(0, 0);
         }
         
     });
