@@ -34,7 +34,8 @@ export const RAW_LIST = [
                 // s'affiche si on est passé par aucun des bouton précédents
                 ifButton: null,
                 text:
-                    'Bienvenue dans une aventure dont <b>VOUS</b> êtes le héros.<br>' +
+                '<span class="app-title-disclaimer"><i>(titre non définitif)</i></span><br><br>' +
+                'Bienvenue dans une aventure dont <b>VOUS</b> êtes le héros.<br>' +
                     '<br>' +
                     'Pour naviguer à travers cette histoire, il vous suffira de choisir une des options proposées au bas de chaque page.'
             },
@@ -46,11 +47,11 @@ export const RAW_LIST = [
                 ifButton: null,
                 notIfButton: null,
                 text:
-                    'Commencer l\'aventure',
+                    '',
                 link: 1
             }
         ],
-        theme: 'basic'
+        theme: 'home'
     },
     {
         id: 1,
@@ -226,7 +227,7 @@ export const RAW_LIST = [
                     'Après avoir arrosé les services de transport de votre ville de toutes les insultes connues du dictionnaire, vous appellez Timmy pour lui demander quoi faire.<br>' +
                     'Celui-ci vous répond que c\'est trop tard, le temps d\'attendre le prochain l\'embarquement sera terminé, et l\'avion prêt à partir.<br>'+
                     '<br>' +
-                    'Malheureusement pour vous, l\'aventure se termine avant même d\'avoir commencé.'
+                    'Malheureusement pour vous, l\'aventure se termine avant même d\'avoir commencée.'
             }
         ],
         buttons: [

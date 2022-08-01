@@ -6,8 +6,12 @@ import * as COMPONENT_HEADER from "../../components/header/header.component.js";
 
 const renderView = (itemId) => {
 
-    if (itemId == -1 || itemId == 0 || itemId == 1) {
+    COMPONENT_HEADER.deleteHeader();
+
+    if (itemId == -1 || itemId == 1) {
         COMPONENT_HEADER.render('void');
+    } else if (itemId == 0) {
+        COMPONENT_HEADER.render();
     } else {
         COMPONENT_HEADER.render('index');
     }
@@ -31,23 +35,34 @@ const renderView = (itemId) => {
         '<span class="title-decoration">- - - - - -</span>';
         page.appendChild(title)
     } else {
-        const logo = document.createElement('img');
-        logo.setAttribute('id', 'logo');
-        logo.setAttribute('class', 'logo');
-        logo.setAttribute('alt', 'un crâne de dinosaure sur un fond texturé de feuillage');
-        logo.setAttribute('src', './images/laramidia_icon.png');
-        page.appendChild(logo)
+        const appTitle = document.createElement('div');
+        appTitle.setAttribute('id', 'appTitle');
+        appTitle.setAttribute('class', 'app-title');
+        appTitle.innerHTML = 
+        '<span>' +
+            'LARAMIDIA<br>' +
+            '3000<br>' +
+        '</span>'
+        page.appendChild(appTitle)
     }
 
     if (itemId != -1) {
         const content = document.createElement('p');
         content.setAttribute('id', 'textContent');
-        content.setAttribute('class', 'text-content');
-        if (item.id == 0) {
-            content.style.border = 'none';
+        if (itemId == 0) {
+            if (SERVICE_STORAGE.getPlayerCurrent() == 0) {
+                content.setAttribute('class', 'text-content-home');
+                content.innerHTML = SERVICE_ITEMS.getItemContent(item);
+            } else {
+                content.setAttribute('class', 'text-content-home');
+                content.innerHTML = '<br><br><br><br><br><br><br>';
+            }
+        } else {
+            content.setAttribute('class', 'text-content');
+            content.innerHTML = SERVICE_ITEMS.getItemContent(item);
         }
 
-        content.innerHTML = SERVICE_ITEMS.getItemContent(item);
+        
         
         page.appendChild(content)
     } else {
@@ -72,32 +87,100 @@ const renderView = (itemId) => {
         page.appendChild(downloadPathButton)
     }
 
-    item.buttons.forEach(button => {
-        if (button.ifButton == null) {
-            renderButton(page, button, item);
-        } else {
-            if (SERVICE_STORAGE.isButtonInPath(button.ifButton)) {
-                if (button.ifNotButton == null) {
-                    renderButton(page, button, item);
-                } else {
-                    if (!SERVICE_STORAGE.isButtonInPath(button.ifNotButton)) {
+    if (itemId == 0) {
+            const current = SERVICE_STORAGE.getPlayerCurrent();
+            if (current == 0) {
+                const startButton = document.createElement('button');
+                startButton.innerHTML = 'Commencer<br>l\'aventure !';
+                startButton.setAttribute('class', 'home-start-button');
+                startButton.addEventListener('click', () => {
+                    SERVICE_STORAGE.setPlayerCurrent(item.buttons[0].link);
+                    const pathItem = {
+                        pageId: item.id,
+                        buttonId: item.buttons[0].id
+                    }
+                    SERVICE_STORAGE.addToPlayerPath(pathItem);
+                    fadeIn();
+                    setTimeout(() => {
+                        renderView(item.buttons[0].link);
+                        window.scrollTo(0, 0);
+                        fadeOut();
+                    }, 400);
+                });
+                page.appendChild(startButton);
+            } else if (current == - 1) {
+                const resetButton = document.createElement('button');
+                resetButton.innerHTML = 'Recommencer<br>l\'aventure';
+                resetButton.setAttribute('class', 'home-reset-button');
+                resetButton.addEventListener('click', () => {
+                    SERVICE_STORAGE.resetPlayerCurrent();
+                    SERVICE_STORAGE.resetPlayerPath();
+                    fadeIn();
+                    setTimeout(() => {
+                        renderView(0);
+                        window.scrollTo(0, 0);
+                        fadeOut();
+                    }, 400);
+                });
+                page.appendChild(resetButton);
+            } else {
+                const resumeButton = document.createElement('button');
+                resumeButton.innerHTML = 'Continuer';
+                resumeButton.setAttribute('class', 'home-resume-button');
+                resumeButton.addEventListener('click', () => {
+                    fadeIn();
+                    setTimeout(() => {
+                        renderView(current);
+                        window.scrollTo(0, 0);
+                        fadeOut();
+                    }, 400);
+                });
+                page.appendChild(resumeButton);
+
+                const resetButton = document.createElement('button');
+                resetButton.innerHTML = 'Recommencer';
+                resetButton.setAttribute('class', 'home-reset-button');
+                resetButton.addEventListener('click', () => {
+                    SERVICE_STORAGE.resetPlayerCurrent();
+                    SERVICE_STORAGE.resetPlayerPath();
+                    fadeIn();
+                    setTimeout(() => {
+                        renderView(0);
+                        window.scrollTo(0, 0);
+                        fadeOut();
+                    }, 400);
+                });
+                page.appendChild(resetButton);
+            }
+    } else {
+        item.buttons.forEach(button => {
+            if (button.ifButton == null) {
+                renderButton(page, button, item);
+            } else {
+                if (SERVICE_STORAGE.isButtonInPath(button.ifButton)) {
+                    if (button.ifNotButton == null) {
                         renderButton(page, button, item);
+                    } else {
+                        if (!SERVICE_STORAGE.isButtonInPath(button.ifNotButton)) {
+                            renderButton(page, button, item);
+                        }
                     }
                 }
             }
-        }
-    });
+        });
+    }    
     
     document.getElementById('main').appendChild(page);
 
     switch (item.theme) {
+        case 'home':
+            document.getElementById('html').style.backgroundColor = 'var(--primary)'; //'#ebe0ce';
+            break;
         case 'basic':
             document.getElementById('html').style.backgroundColor = '#ffffff'; //'#ebe0ce';
             break;
-        case 'bestwin':
-            document.getElementById('html').style.backgroundColor = '#92e38f';
-            break;
         case 'win':
+            document.getElementById('html').style.backgroundColor = '#ffffff'; //'#ebe0ce';
             document.getElementById('textContent').style.background = '-webkit-linear-gradient(var(--primary-hover), #195e41)';
             document.getElementById('textContent').style.webkitBackgroundClip = 'text';
             document.getElementById('textContent').style.webkitTextFillColor = 'transparent'
@@ -108,6 +191,7 @@ const renderView = (itemId) => {
             document.getElementById('page').insertBefore(winContainer, document.getElementsByTagName('button')[0]);
             break;
         case 'death':
+            document.getElementById('html').style.backgroundColor = '#ffffff'; //'#ebe0ce';
             document.getElementById('textContent').style.background = '-webkit-linear-gradient(var(--primary-hover), #5e1b19)';
             document.getElementById('textContent').style.webkitBackgroundClip = 'text';
             document.getElementById('textContent').style.webkitTextFillColor = 'transparent'
@@ -122,6 +206,14 @@ const renderView = (itemId) => {
     }
 }
 
+const fadeIn = () => {
+    document.getElementById('main').style.zIndex = -1;
+    document.getElementById('main').style.opacity = 0;
+}
+const fadeOut = () => {
+    document.getElementById('main').style.opacity = 100;
+}
+
 const renderButton = (pageComponent, button, item) => {
     const finalButton = document.createElement('button');
     finalButton.innerHTML = button.text;
@@ -134,30 +226,29 @@ const renderButton = (pageComponent, button, item) => {
                 buttonId: button.id
             }
             SERVICE_STORAGE.addToPlayerPath(pathItem);
-            renderView(button.link);
-            window.scrollTo(0, 0);
+            
+            fadeIn();
+            setTimeout(() => {
+                renderView(button.link);
+                window.scrollTo(0, 0);
+                fadeOut();
+            }, 200);
+            
         } else {
             SERVICE_STORAGE.resetPlayerCurrent();
             SERVICE_STORAGE.resetPlayerPath();
-            renderView(button.link);
-            window.scrollTo(0, 0);
+            fadeIn();
+            setTimeout(() => {
+                renderView(button.link);
+                window.scrollTo(0, 0);
+                fadeOut();
+            }, 200);
         }
-        
     });
-
     pageComponent.appendChild(finalButton);
 }
 
-const isInPath = (itemId) => {
-    let toReturn = false;
-    const playerPath = SERVICE_STORAGE.getPlayerPath();
-    playerPath.forEach(element => {
-        if (element == itemId) {
-            toReturn = true;
-        }
-    });
-    return toReturn;
-}
+
 SERVICE_STORAGE.checkFirstTime();
-renderView(SERVICE_STORAGE.getPlayerCurrent());
+renderView(0);
 COMPONENT_FOOTER.render();

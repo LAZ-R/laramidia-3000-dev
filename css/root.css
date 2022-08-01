@@ -79,12 +79,14 @@ MAIN CONTAINERS
 html {
     min-height: 100%;
     background-color: var(--html-background-color);
+    transition: background-color linear .2s;
 }
 
 body {
     margin: 0;
     font-family: Roboto-Regular;
     color: var(--font-color-default);
+    
 }
 
 /* Main container */
@@ -100,6 +102,9 @@ main {
     margin-top: var(--phone-header-height);
     margin-bottom: calc(20px + var(--phone-footer-height));
     padding: 0 var(--phone-horizontal-padding);
+
+    transition: opacity linear .2s;
+    overflow: hidden;
 }
 
 main div {

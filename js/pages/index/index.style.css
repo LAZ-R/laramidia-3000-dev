@@ -35,9 +35,23 @@ main button {
     text-align: center;
 }
 
-.logo {
-    width: 200px;
-    margin-top: 30px;
+.app-title {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: fit-content;
+    width: 100%;
+    color: #ffffff;
+    font-family: "Lora-Medium";
+    font-size: 55px;
+    font-weight: 600;
+}
+
+.app-title-disclaimer {
+    font-size: 15px;
+    font-weight: 200;
 }
 
 .text-content {
@@ -47,6 +61,14 @@ main button {
     padding: 10px 10px;
     font-family: "Lora-Medium";
     color: var(--primary-hover);
+    font-size: 17px;
+    width: 100%;
+}
+
+.text-content-home {
+    box-sizing: border-box;
+    padding: 10px 10px;
+    color: #ffffff;
     font-size: 17px;
     width: 100%;
 }
@@ -66,4 +88,28 @@ main button {
     color: var(--primary-hover);
     border: 1px solid var(--primary);
     font-size: 15px;
+}
+
+.home-start-button {
+    background-color: #ffffff;
+    color: var(--primary);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 22px;
+}
+
+.home-reset-button {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.home-resume-button {
+    background-color: #ffffff;
+    color: var(--primary);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 22px;
 }
