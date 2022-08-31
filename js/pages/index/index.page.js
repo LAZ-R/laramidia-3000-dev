@@ -5,27 +5,43 @@ import * as SERVICE_PWA from '../../services/pwa.service.js';
 import * as COMPONENT_HEADER from "../../components/header/header.component.js";
 
 const renderView = (itemId) => {
+    
+    const item = SERVICE_ITEMS.getItemById(itemId);
+
+    /* ----------------------------------------------------------------------------------------------------------------
+    Header rendering
+    ---------------------------------------------------------------------------------------------------------------- */
 
     COMPONENT_HEADER.deleteHeader();
 
-    if (itemId == -1 || itemId == 1) {
+    // if item is final page or first normal page -----------------------------
+    if (item.id == -1 || item.id == 1) {
         COMPONENT_HEADER.render('void');
-    } else if (itemId == 0) {
+    }
+    // if item is main menu ---------------------------------------------------
+    else if (item.id == 0) {
         COMPONENT_HEADER.render();
-    } else {
+    }
+    // if item is normal page -------------------------------------------------
+    else {
         COMPONENT_HEADER.render('index');
     }
 
+    /* ----------------------------------------------------------------------------------------------------------------
+    Page initialization
+    ---------------------------------------------------------------------------------------------------------------- */
+
     document.getElementById('main').innerHTML = '';
-
-    const item = SERVICE_ITEMS.getItemById(itemId);
-
     SERVICE_PWA.setHTMLTitle(item.title);
-    
     const page = document.createElement('div');
     page.setAttribute('id', 'page');
 
-    if (item.id != 0) {
+    /* ----------------------------------------------------------------------------------------------------------------
+    Page title (heavily depends on item Id)
+    ---------------------------------------------------------------------------------------------------------------- */
+
+    // if item is not main menu -----------------------------------------------
+    if (item.id != 0) { 
         const title = document.createElement('p');
         title.setAttribute('id', 'textTitle');
         title.setAttribute('class', 'title-area');
@@ -34,7 +50,10 @@ const renderView = (itemId) => {
         '<span class="item-title">' + item.title + '</span>' +
         '<span class="title-decoration">- - - - - -</span>';
         page.appendChild(title)
-    } else {
+    }
+
+    // if item is main menu ---------------------------------------------------
+    else {
         const appTitle = document.createElement('div');
         appTitle.setAttribute('id', 'appTitle');
         appTitle.setAttribute('class', 'app-title');
@@ -46,26 +65,42 @@ const renderView = (itemId) => {
         page.appendChild(appTitle)
     }
 
-    if (itemId != -1) {
+    /* ----------------------------------------------------------------------------------------------------------------
+    Page content (heavily depends on item Id)
+    ---------------------------------------------------------------------------------------------------------------- */
+
+    // if item is not final screen --------------------------------------------
+    if (item.id != -1) {
         const content = document.createElement('p');
         content.setAttribute('id', 'textContent');
-        if (itemId == 0) {
+
+        // if item is main menu -----------------------------------------------
+        if (item.id == 0) {
+
+            // if it's first time ---------------------------------------------
             if (SERVICE_STORAGE.getPlayerCurrent() == 0) {
                 content.setAttribute('class', 'text-content-home');
                 content.innerHTML = SERVICE_ITEMS.getItemContent(item);
-            } else {
-                content.setAttribute('class', 'text-content-home');
-                content.innerHTML = '<br><br><br><br><br><br><br>';
             }
-        } else {
+
+            // if it's not first time -----------------------------------------
+            else {
+                content.setAttribute('class', 'text-content-home');
+                content.innerHTML = '<br><br><br><br><br><br><br>'; // blank text zone to push buttons downward
+            }
+        }
+
+        // if item is not main menu -------------------------------------------
+        else {
             content.setAttribute('class', 'text-content');
             content.innerHTML = SERVICE_ITEMS.getItemContent(item);
         }
 
-        
-        
         page.appendChild(content)
-    } else {
+    }
+
+    // if item is final screen ------------------------------------------------
+    else {
         let finalText = SERVICE_STORAGE.getPlayerPathFormattedString('text');
 
         const exportTextArea = document.createElement('textarea');
@@ -87,9 +122,16 @@ const renderView = (itemId) => {
         page.appendChild(downloadPathButton)
     }
 
-    if (itemId == 0) {
-            const current = SERVICE_STORAGE.getPlayerCurrent();
-            if (current == 0) {
+    /* ----------------------------------------------------------------------------------------------------------------
+    Page buttons (heavily depends on item Id)
+    ---------------------------------------------------------------------------------------------------------------- */
+
+    // if item is main menu ---------------------------------------------------
+    if (item.id == 0) {
+
+            // if it's first time ---------------------------------------------
+            if (SERVICE_STORAGE.getPlayerCurrent() == 0) {
+
                 const startButton = document.createElement('button');
                 startButton.innerHTML = 'Commencer<br>l\'aventure !';
                 startButton.setAttribute('class', 'home-start-button');
@@ -108,7 +150,10 @@ const renderView = (itemId) => {
                     }, 400);
                 });
                 page.appendChild(startButton);
-            } else if (current == - 1) {
+            }
+
+            // if current is final screen -------------------------------------
+            else if (SERVICE_STORAGE.getPlayerCurrent() == - 1) {
                 const resetButton = document.createElement('button');
                 resetButton.innerHTML = 'Recommencer<br>l\'aventure';
                 resetButton.setAttribute('class', 'home-reset-button');
@@ -123,14 +168,17 @@ const renderView = (itemId) => {
                     }, 400);
                 });
                 page.appendChild(resetButton);
-            } else {
+            }
+            
+            // if current is a normal page ------------------------------------
+            else {
                 const resumeButton = document.createElement('button');
                 resumeButton.innerHTML = 'Continuer';
                 resumeButton.setAttribute('class', 'home-resume-button');
                 resumeButton.addEventListener('click', () => {
                     fadeIn();
                     setTimeout(() => {
-                        renderView(current);
+                        renderView(SERVICE_STORAGE.getPlayerCurrent());
                         window.scrollTo(0, 0);
                         fadeOut();
                     }, 400);
@@ -152,7 +200,10 @@ const renderView = (itemId) => {
                 });
                 page.appendChild(resetButton);
             }
-    } else {
+    }
+
+    // if item is not main menu -----------------------------------------------
+    else {
         item.buttons.forEach(button => {
             if (button.ifButton == null) {
                 renderButton(page, button, item);
@@ -172,7 +223,15 @@ const renderView = (itemId) => {
     
     document.getElementById('main').appendChild(page);
 
-    switch (item.theme) {
+    /* ----------------------------------------------------------------------------------------------------------------
+    Page theme handling
+    ---------------------------------------------------------------------------------------------------------------- */
+
+    handlePageTheme(item.theme);
+}
+
+const handlePageTheme = (itemTheme) => {
+    switch (itemTheme) {
         case 'home':
             document.getElementById('html').style.backgroundColor = 'var(--primary)'; //'#ebe0ce';
             break;

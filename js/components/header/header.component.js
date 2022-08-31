@@ -50,7 +50,7 @@ export const render = (linkToDisplay) => {
             ul = 
                 '<ul class="header-nav-ul">' +
                 '</ul>';
-             header.innerHTML =
+            header.innerHTML =
                 '<span class="header-logo" alt="app logo">LARAMIDIA 3000</span>' +
                 '<nav class="header-nav">' +
                     ul +

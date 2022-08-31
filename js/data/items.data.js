@@ -64,7 +64,7 @@ export const RAW_LIST = [
                 text:
                     'Le bruit diffus de l\'alarme qui sort de votre téléphone vous tire d\'un sommeil profond et réparateur.<br>' +
                     '<br>' +
-                    'Après l\'avoir éteinte, vous vous apercevez qu\'elle sonnait depuis maintenant une bonne demie-heure, et que vous êtes désormais en retard.<br>' +
+                    'Après l\'avoir éteinte, vous vous apercevez qu\'elle sonnait depuis maintenant une bonne demi-heure, et que vous êtes désormais en retard.<br>' +
                     'Il va falloir courir pour réussir à avoir l\'avion. Une chance que vous ayez préparé votre valise la veille.<br>' +
                     '<br>' +
                     'Vous enfilez les premiers vêtements que vous trouvez, et passez en revue vos affaires une dernière fois afin de vous assurer que vous n\'oubliez rien.<br>' +
@@ -113,7 +113,7 @@ export const RAW_LIST = [
                 ifButton: null,
                 text:
                     'Après avoir attendu votre taxi 10 <i>bonnes</i> minutes, celui-ci arrive et se gare à votre niveau. En vous analysant de la tête aux pieds, il vous fait signe de ranger votre valise dans le coffre.<br>' +
-                    'Vous vous exécutez, puis prenez place à bord de la berline, certes un peu datée, mais toujours comfortable.<br>' +
+                    'Vous vous exécutez, puis prenez place à bord de la berline, certes un peu datée, mais toujours confortable.<br>' +
                     '<br>' +
                     'Vous sentez alors le regard de votre chauffeur dans le rétroviseur intérieur :<br>' +
                     '- On va où ?<br>' +
@@ -124,7 +124,8 @@ export const RAW_LIST = [
                     '<br>' +
                     'Après 15 minutes d\'un trajet aussi inintéressant que la vie de l\'homme assis devant vous, qu\'il tient pourtant absolument à vous raconter, l\'univers vous envoi un nouveau signe :<br>' +
                     '<br>' +
-                    'Un embouteillage.<br>Monstrueux.<br>' +
+                    'Un embouteillage.<br>' +
+                    'Monstrueux.<br>' +
                     '<br>' +
                     'Vous regardez votre interlocuteur, qui s\'excuse pour le retard que cela va engendrer.'
             }
@@ -155,7 +156,7 @@ export const RAW_LIST = [
                     'Vous garez votre engin dans le parking le plus proche de l\'entrée, puis sortez en courant, valise à la main.<br>' +
                     '<br>' +
                     'Vous retrouvez et saluez vos amis d\'enfance, regroupés un peu plus loin, en vous dirigeant vers eux.<br>' +
-                    'Timmy est passé vous voir la semaine précédente pour vous proposer cette "réunion de famille", mais il y a un petit moment que vous n\'aviez pas vu Robert et Laura en personne.<br>' +
+                    'Timmy est passé vous voir le mois dernier pour vous proposer cette "réunion de famille", mais il y a un petit moment que vous n\'aviez pas vu Robert et Laura en personne.<br>' +
                     '<br>' +
                     'Celle-ci vous sourit en sortant un paquet de cigarettes de sa poche, et vous demande si vous n\'auriez pas du feu.'
             },
@@ -168,7 +169,7 @@ export const RAW_LIST = [
                     '<br>' +
                     'En arrivant devant le terminal de l\'aéroport, le chauffeur du taxi n\'a même pas le temps de vous annoncer le prix de votre course que vous lui avez déjà tendu un billet en lui disant de garder la monnaie et êtes déjà dans le coffre à récupérer votre valise.<br>' +
                     'D\'un rapide coup d\'œil, vous repérez et saluez vos amis d\'enfance, regroupés un peu plus loin, et vous dirigez vers eux.<br>' +
-                    'Timmy est passé vous voir la semaine précédente pour vous proposer cette "réunion de famille", mais il y a un petit moment que vous n\'aviez pas vu Robert et Laura en personne.<br>' +
+                    'Timmy est passé vous voir le mois dernier pour vous proposer cette "réunion de famille", mais il y a un petit moment que vous n\'aviez pas vu Robert et Laura en personne.<br>' +
                     '<br>' +
                     'Celle-ci vous sourit en sortant un paquet de cigarettes de sa poche, et vous demande si vous n\'auriez pas du feu.'
             }
@@ -328,7 +329,7 @@ export const RAW_LIST = [
                 text:
                     'Il vous rassure en vous disant qu\'il vous expliquera tout durant le vol.<br>' +
                     '<br>' +
-                    'Une voix robotique se fait soudain entendre à travers les hauts-parleurs extérieurs de piètre qualités de l\'aéroport :<br>' +
+                    'Une voix robotique se fait soudain entendre à travers les haut-parleurs extérieurs de piètre qualités de l\'aéroport :<br>' +
                     '- Fin d\'enregistrement pour le vol numéro 065421 à destination de Great Falls International dans 15 minutes !<br>' +
                     'La panique sur le visage de Timmy vous fait comprendre qu\'il s\'agit de votre avion, et vous vous précipitez à l\'intérieur de l\'aéroport avec le reste du groupe.<br>' +
                     '<br>' +
@@ -343,7 +344,7 @@ export const RAW_LIST = [
                 text:
                     'Il vous rassure en vous disant que si vous ne voulez pas des détails techniques, il se fera violence et vous les épargnera.<br>' +
                     '<br>' +
-                    'Une voix robotique se fait soudain entendre à travers les hauts-parleurs extérieurs de piètre qualités de l\'aéroport :<br>' +
+                    'Une voix robotique se fait soudain entendre à travers les haut-parleurs extérieurs de piètre qualités de l\'aéroport :<br>' +
                     '- Fin d\'enregistrement pour le vol numéro 065421 à destination de Great Falls International dans 15 minutes !<br>' +
                     'La panique sur le visage de Timmy vous fait comprendre qu\'il s\'agit de votre avion, et vous vous précipitez à l\'intérieur de l\'aéroport avec le reste du groupe.<br>' +
                     '<br>' +

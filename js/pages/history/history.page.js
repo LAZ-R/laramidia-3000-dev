@@ -24,7 +24,6 @@ const renderView = () => {
     page.appendChild(bottom);
     
     document.getElementById('main').appendChild(page);
-    
 }
 
 renderView();
